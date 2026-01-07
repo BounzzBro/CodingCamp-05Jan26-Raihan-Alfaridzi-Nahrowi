@@ -4,8 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do List Application</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
-<body>
-    
+<body class="body">
+    <h1>Todo List</h1>
+    <div class="container">
+
+        <div class="Add">
+            <input id="todoInput" type="text" required placeholder="Add a todo...">
+            <input id="dateInput" type="date" required>
+            <button id="addBtn">+</button>
+        </div>
+
+        <div class="controls">
+            <div class="filter">
+                <button id="filterBtn" type="button">FILTER</button>
+                <div id="filterMenu" class="filter-menu" aria-hidden="true">
+                    <button type="button" data-filter="all">All</button>
+                    <button type="button" data-filter="pending">Pending</button>
+                    <button type="button" data-filter="done">Done</button>
+                </div>
+            </div>
+            <div class="delete">
+                <button id="deleteAllBtn" type="button">DELETE ALL</button>
+            </div>
+        </div>
+
+        <div class="table list">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 40%">Task</th>
+                        <th style="width: 25%">Due Date</th>
+                        <th style="width: 15%">Status</th>
+                        <th style="width: 20%">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="todoTbody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="./js/script.js"></script>
 </body>
 </html>

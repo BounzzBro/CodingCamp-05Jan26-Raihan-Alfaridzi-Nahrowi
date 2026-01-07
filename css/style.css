@@ -1,0 +1,236 @@
+:root {
+            --bg-black: #0b0c10;       /* Hitam Pekat (Background Body) */
+            --bg-dark-blue: #1f2833;   /* Biru Tua (Container) */
+            --text-white: #ffffff;     /* Putih (Teks Utama) */
+            --accent-blue: #66fcf1;    /* Biru Muda Neon (Fokus/Tombol Utama) */
+            --muted-blue: #45a29e;     /* Biru Keabuan (Border/Hover) */
+            --danger: #ff4d4d;         /* Merah (Tombol Delete) */
+        }
+
+        /* --- 2. RESET & BODY --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body.body {
+            background-color: var(--bg-black);
+            color: var(--text-white);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding-top: 50px;
+        }
+
+        h1 {
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(102, 252, 241, 0.3);
+        }
+
+        /* --- 3. CONTAINER UTAMA --- */
+        .container {
+            background-color: var(--bg-dark-blue);
+                    width: 90%;
+                    max-width: 900px;
+                    padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--muted-blue);
+                    display: flex;
+                    flex-direction: column;
+                    min-height: 400px;
+        }
+
+        /* --- 4. BAGIAN INPUT (ADD) --- */
+        .Add {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"], 
+        input[type="date"] {
+            padding: 12px;
+            border-radius: 5px;
+            border: 2px solid var(--muted-blue);
+            background-color: var(--bg-black);
+            color: var(--text-white);
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input[type="text"] {
+            flex: 2; /* Lebih lebar */
+        }
+
+        input[type="date"] {
+            flex: 1;
+            color-scheme: dark; /* Agar icon kalender jadi putih/gelap */
+        }
+
+        input:focus {
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 8px rgba(102, 252, 241, 0.2);
+        }
+
+        .Add button {
+            padding: 0 20px;
+            font-size: 1.5rem;
+            background-color: var(--accent-blue);
+            color: var(--bg-black);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .Add button:hover {
+            background-color: var(--muted-blue);
+            color: var(--text-white);
+        }
+
+        /* --- 5. FILTER & DELETE ALL --- */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .filter {
+            position: relative;
+        }
+
+        .filter button {
+            padding: 10px 20px;
+            border: 1px solid var(--accent-blue);
+            background: transparent;
+            color: var(--accent-blue);
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .filter button:hover {
+            background-color: var(--accent-blue);
+            color: var(--bg-black);
+        }
+
+        .filter-menu {
+            position: absolute;
+            top: 110%;
+            left: 0;
+            background: var(--bg-dark-blue);
+            border: 1px solid var(--muted-blue);
+            border-radius: 8px;
+            padding: 6px;
+            display: none;
+            min-width: 140px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+            z-index: 50;
+        }
+
+        .filter-menu.show { display: block; }
+
+        .filter-menu button {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 8px 10px;
+            border: none;
+            background: transparent;
+            color: var(--text-white);
+            cursor: pointer;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        .filter-menu button:hover { background: rgba(102,252,241,0.06); color: var(--accent-blue); }
+
+        .delete button {
+            border-color: var(--danger);
+            color: var(--danger);
+        }
+
+        .delete button:hover {
+            background-color: var(--danger);
+            color: white;
+        }
+
+        /* --- 6. TABLE STYLING --- */
+        .table.list {
+                    overflow: auto; /* Allows scrolling when content grows */
+                    flex: 1; /* fill remaining container space */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th {
+            background-color: var(--bg-black);
+            color: var(--accent-blue);
+            padding: 15px;
+            text-align: left;
+            border-bottom: 2px solid var(--muted-blue);
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid rgba(69, 162, 158, 0.2);
+                    vertical-align: middle;
+        }
+
+        .status-badge {
+            padding: 6px 10px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+        .status-pending { background:#f1c40f; color:#111; }
+        .status-done { background:#2ecc71; color:#022; }
+
+        /* Hover efek pada baris tabel */
+        tbody tr:hover {
+            background-color: rgba(102, 252, 241, 0.05);
+        }
+
+        /* --- 7. TOMBOL AKSI DI TABEL --- */
+        .action-btn {
+            padding: 5px 10px;
+            margin-right: 5px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .edit-btn {
+            background-color: var(--muted-blue);
+            color: var(--text-white);
+        }
+
+        .del-btn {
+            background-color: #c0392b;
+            color: var(--text-white);
+        }
+        
+        /* Responsive: Tumpuk input di layar kecil */
+        @media (max-width: 600px) {
+            .Add {
+                flex-direction: column;
+            }
+            .Add button {
+                padding: 10px;
+            }
+        }

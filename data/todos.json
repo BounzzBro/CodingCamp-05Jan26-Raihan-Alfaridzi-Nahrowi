@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1704640000000,
+    "text": "Sample Task 1",
+    "date": "2025-12-01",
+    "status": "pending"
+  },
+  {
+    "id": 1704726400000,
+    "text": "Finished Task",
+    "date": "2025-12-02",
+    "status": "done"
+  }
+]
